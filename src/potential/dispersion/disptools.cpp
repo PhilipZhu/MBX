@@ -513,7 +513,7 @@ bool GetC6(std::string mon_id1, std::string mon_id2, size_t index1, size_t index
     std::vector<size_t> types1, types2;
 
     // Monomers here have to be in alphabetical order: mon1 < mon2 ALWAYS
-    if (mon_id1 == "h2o" && mon_id2 == "h2o") {
+    if ((mon_id1 == "h2o" && mon_id2 == "h2o") || (mon_id1 == "h2o_2c3c4c" && mon_id2 == "h2o_2c3c4c")) {
         // Define the type of atom in each mon
         types1.push_back(0);
         types1.push_back(1);

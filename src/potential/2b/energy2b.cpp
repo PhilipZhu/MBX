@@ -75,6 +75,9 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
     if (mon1 == "h2o" and mon2 == "h2o") {
         x2o::x2b_v9x pot;
         energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+    } else if (mon1 == "h2o_2c3c4c" and mon2 == "h2o_2c3c4c") {
+        mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
+        return pot.eval(xyz1.data(), xyz2.data(), nm);
         // Ion water
     } else if (mon1 == "cs+" and mon2 == "h2o") {
         // The order is bc the poly were generated this way
@@ -252,6 +255,9 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
     if (mon1 == "h2o" and mon2 == "h2o") {
         x2o::x2b_v9x pot;
         energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+    } else if (mon1 == "h2o_2c3c4c" and mon2 == "h2o_2c3c4c") {
+        mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
+        energy =  pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
     } else if (mon1 == "cs+" and mon2 == "h2o") {
         // The order is bc the poly were generated this way
         // First water and then ion

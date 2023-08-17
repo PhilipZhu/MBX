@@ -58,7 +58,7 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
     static const unsigned n_vars = 66;
 
     // Number of terms
-    static const unsigned size = 398;
+    static const unsigned size = 266;
 
     /**
      * @brief Evaluates the polynomial of degree 4 for A1B2_A1B2_A1B2_A1B2 symmetry.
@@ -66,11 +66,11 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2_A1B2_A1B2_A1B2 symmetry.
      * @param[in] x Double array of length 66 with the variable values
-     * @param[in] a Double array of 398 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 266 elements with the linear parameters of the polynomial
      * @return Value of the polynomial
      */
     double eval(const double x[66],
-              const double a[398]);
+              const double a[266]);
 
     /**
      * @brief Evaluates the polynomial of degree 4 for A1B2_A1B2_A1B2_A1B2 symmetry.
@@ -79,11 +79,11 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
      * evaluates the polynomial for the A1B2_A1B2_A1B2_A1B2 symmetry.
      * It uses the direct, non optimized polynomial
      * @param[in] x Double array of length 66 with the variable values
-     * @param[in] a Double array of 398 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 266 elements with the linear parameters of the polynomial
      * @return Value of the polynomial
      */
     double eval_direct(const double x[66],
-                     const double a[398]);
+                     const double a[266]);
 
     /**
      * @brief Evaluates the polynomial of degree 4 for A1B2_A1B2_A1B2_A1B2 symmetry.
@@ -91,12 +91,12 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2_A1B2_A1B2_A1B2 symmetry.
      * @param[in] x Double array of length 66 with the variable values
-     * @param[in] a Double array of 398 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 266 elements with the linear parameters of the polynomial
      * @param[out] g Double array of length 66 that will store the gradients dP/dxi
      * @return Value of the polynomial
      */
     double eval(const double x[66],
-              const double a[398],
+              const double a[266],
                     double g[66]);
     
     /**
@@ -106,12 +106,12 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
      * evaluates the polynomial for the A1B2_A1B2_A1B2_A1B2 symmetry.
      * It uses the direct, non optimized polynomial
      * @param[in] x Double array of length 66 with the variable values
-     * @param[in] a Double array of 398 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 266 elements with the linear parameters of the polynomial
      * @param[out] g Double array of length 66 that will store the gradients dP/dxi
      * @return Value of the polynomial
      */
     double eval_direct(const double x[66],
-                     const double a[398],
+                     const double a[266],
                            double g[66]);
 };
 
@@ -196,10 +196,10 @@ struct poly_A1B2_A1B2_A1B2_A1B2_deg4_v1 {
 //  add_variable['B', '7', 'd', 'B', '8', 'd', 'x-intra-B+B-1']
 //  
 //  add_filter['sum-degree', 'x-inter-*+*-*', '0']
-//  
 //  add_filter['num-fragments', 'x-inter-*+*-*', '3-']
 //  add_filter['sum-degree', '*', '2-']
-//  add_filter['sum-degree', '*', '4', 'and', sum-degree', 'x-inter-A+A-*', '2+']
+//  add_filter['sum-degree', '*', '4', 'and', sum-degree', 'x-inter-A+A-*', '3+']
 //  add_filter['sum-degree', '*', '4', 'and', sum-degree', 'x-inter-B+B-*', '2+']
 //  add_filter['sum-degree', '*', '4', 'and', sum-degree', 'x-inter-A+B-*', '2+']
 //  add_filter['sum-degree', '*', '4', 'and', sum-degree', 'x-inter-*-*', '4']
+//  add_filter['poorly-behaved-by-fragment']
