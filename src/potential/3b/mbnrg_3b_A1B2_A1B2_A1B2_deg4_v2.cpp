@@ -10,9 +10,9 @@ mbnrg_A1B2_A1B2_A1B2_deg4_v2::mbnrg_A1B2_A1B2_A1B2_deg4_v2(const std::string mon
     // =>> PASTE RIGHT BELOW THIS LINE <==
 
 
-    if (      std::regex_match(mon1, std::regex("^h2o_2.3a.*"))
-         and  std::regex_match(mon2, std::regex("^h2o_2.3a.*"))
-         and  std::regex_match(mon3, std::regex("^h2o_2.3a.*")) ) {
+    if ( std::regex_match(mon1, std::regex("^h2o_2.3a.*"))
+         and  mon1 == mon2
+         and  mon1 == mon3 ) {
         coefficients = std::vector<double> {
             -1.086960669052707e-03, // 0
              5.608454763639523e-01, // 1

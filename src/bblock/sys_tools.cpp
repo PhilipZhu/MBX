@@ -164,7 +164,7 @@ size_t SetUpMonomers(std::vector<std::string> mon, std::vector<size_t> &sites, s
         }
 
         if (!is_in_json) {
-            if (mon[i] == "h2o" ||  std::regex_match(mon[i], std::regex("^h2o_.*"))) {
+            if (mon[i] == "h2o" || (mon[i].size() > 4 && mon[i].substr(0, 4) == "h2o_")) {
                 // Filling things for water.
                 // Site Info
                 // TODO Maybe we can read this from a database
@@ -673,7 +673,7 @@ void GetExcluded(std::string mon, nlohmann::json mon_j, excluded_set_type &exc12
     if (is_in_json) return;
 
     // MBX v0.1.0a
-    if (mon == "h2o" ||  std::regex_match(mon, std::regex("^h2o_.*"))) {
+    if (mon == "h2o" || (mon.size() > 4 && mon.substr(0, 4) == "h2o_")) {
         // 12 distances
         exc12.insert(std::make_pair(0, 1));
         exc12.insert(std::make_pair(0, 2));
@@ -801,7 +801,7 @@ double GetAdd(bool is12, bool is13, bool is14, std::string mon) {
     // Intermolecular aDD is always 0.055
     double aDD = 0.055;
     // For water
-    if (mon == "h2o" || mon == "mbpbe" ||  std::regex_match(mon, std::regex("^h2o_.*"))) {
+    if (mon == "h2o" || mon == "mbpbe" || (mon.size() > 4 && mon.substr(0, 4) == "h2o_")) {
         if (is12) {
             aDD = 0.626;
         } else {
@@ -870,7 +870,7 @@ std::vector<double> ResetOrderReal3N(std::vector<double> coords, std::vector<std
 void SetVSites(std::vector<double> &xyz, std::string mon_id, size_t n_mon, size_t nsites, size_t fst_ind) {
     size_t fstind_3 = 3 * fst_ind;
 
-    if (mon_id == "h2o" || mon_id == "mbpbe" ||  std::regex_match(mon_id, std::regex("^h2o_.*"))) {
+    if (mon_id == "h2o" || mon_id == "mbpbe" || (mon_id.size() > 4 && mon_id.substr(0, 4) == "h2o_")) {
         // Some useful constants
         size_t nmns = n_mon * 3;
         size_t nmns2 = nmns * 2;
@@ -1094,7 +1094,7 @@ void SetCharges(std::vector<double> xyz, std::vector<double> &charges, std::stri
             }
         }
         // Note, for now, assuming only water has site dependant charges
-    } else if (mon_id == "h2o" || std::regex_match(mon_id, std::regex("^h2o_.*"))) {
+    } else if (mon_id == "h2o" || (mon_id.size() > 4 && mon_id.substr(0, 4) == "h2o_")) {
         // chgtmp = M, H1, H2 according to ttm4.cpp
         std::vector<double> chgtmp;
         size_t fstind_3 = 3 * fst_ind;
@@ -1307,7 +1307,7 @@ void SetPolfac(std::vector<double> &polfac, std::string mon_id, size_t n_mon, si
             }
         }
 
-    } else if (mon_id == "h2o" || std::regex_match(mon_id, std::regex("^h2o_.*"))) {
+    } else if (mon_id == "h2o" || (mon_id.size() > 4 && mon_id.substr(0, 4) == "h2o_")) {
         // Creating vector with contiguous data
         std::vector<double> polfac2(n_mon * nsites, 0.0);
         for (size_t nv = 0; nv < n_mon; nv++) {
@@ -1478,7 +1478,7 @@ void SetPol(std::vector<double> &pol, std::string mon_id, size_t n_mon, size_t n
                 pol[nv * nsites + j + fst_ind] = pol2[nv + n_mon * j];
             }
         }
-    } else if (mon_id == "h2o" || std::regex_match(mon_id, std::regex("^h2o_.*"))) {
+    } else if (mon_id == "h2o" || (mon_id.size() > 4 && mon_id.substr(0, 4) == "h2o_")) {
         // Creating vector with contiguous data
         std::vector<double> pol2(n_mon * nsites, 0.0);
         for (size_t nv = 0; nv < n_mon; nv++) {
@@ -1665,7 +1665,7 @@ void SetC6LongRange(std::vector<double> &c6_lr, std::string mon_id, size_t n_mon
         }
         // Water is the only monomer which C6 does not come from qchem.
         // It comes from MB-pol (C6O = sqrt(C6OO))
-    } else if (mon_id == "h2o" || std::regex_match(mon_id, std::regex("^h2o_.*"))) {
+    } else if (mon_id == "h2o" || (mon_id.size() > 4 && mon_id.substr(0, 4) == "h2o_")) {
         for (size_t nv = 0; nv < n_mon; nv++) {
             c6_lr[nv * natoms + fst_ind] = 15.40523357222455098728;     // O
             c6_lr[nv * natoms + fst_ind + 1] = 4.48258697649551357815;  // H
@@ -1677,7 +1677,7 @@ void SetC6LongRange(std::vector<double> &c6_lr, std::string mon_id, size_t n_mon
 // Assuming for now xyzxyzxyz...
 void RedistributeVirtGrads2Real(const std::string mon, const size_t nmon, const size_t fi_crd,
                                 std::vector<double> &grad) {
-    if (mon == "h2o" || mon == "mbpbe" || std::regex_match(mon, std::regex("^h2o_.*"))) {
+    if (mon == "h2o" || mon == "mbpbe" || (mon.size() > 4 && mon.substr(0, 4) == "h2o_")) {
         for (size_t i = 0; i < nmon; i++) {
             const size_t shift = fi_crd + i * 4 * 3;
             for (size_t k = 0; k < 3; ++k) {
@@ -1695,7 +1695,7 @@ void ChargeDerivativeForce(const std::string mon, const size_t nmon, const size_
                            double *crd, std::vector<double> *qdvirial) {
     // Note: XYZ is in the internal electorstatics order: Ox1Ox2Ox3...Oy1Oy2Oy3.. Oz1...Hx1Hx2..
     // If water, extracted from patridge-schwneke paper
-    if (mon == "h2o" || std::regex_match(mon, std::regex("^h2o_.*"))) {
+    if (mon == "h2o" || (mon.size() > 4 && mon.substr(0, 4) == "h2o_")) {
         for (size_t mm = 0; mm < nmon; mm++) {
             // Declaring shfts for coordinates and fields
             const size_t shift = fi_crd + 12 * mm;

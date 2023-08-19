@@ -98,10 +98,10 @@ double get_4b_energy(std::string mon1, std::string mon2, std::string mon3, std::
         energy = 0.0;
         // =====>> BEGIN SECTION 4B_NO_GRADIENT <<=====
         // =====>> PASTE YOUR CODE BELOW <<=====
-    } else if (      std::regex_match(mon1, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon2, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon3, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon4, std::regex("^h2o_.*4[bc]")) ) {
+    } else if ( std::regex_match(mon1, std::regex("^h2o_.*4[bc]"))
+                and  mon1 == mon2
+                and  mon1 == mon3
+                and  mon1 == mon4 ) {
         mbnrg_A1B2_A1B2_A1B2_A1B2_deg4::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1 pot(mon1, mon2, mon3, mon4);
         energy = pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), xyz4.data(), nm);
 
@@ -224,10 +224,10 @@ double get_4b_energy(std::string mon1, std::string mon2, std::string mon3, std::
         energy = 0.0;
         // =====>> BEGIN SECTION 4B_GRADIENT <<=====
         // =====>> PASTE YOUR CODE BELOW <<=====
-    } else if (      std::regex_match(mon1, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon2, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon3, std::regex("^h2o_.*4[bc]"))
-                and  std::regex_match(mon4, std::regex("^h2o_.*4[bc]")) ) {
+    } else if ( std::regex_match(mon1, std::regex("^h2o_.*4[bc]"))
+                and  mon1 == mon2
+                and  mon1 == mon3
+                and  mon1 == mon4 ) {
         mbnrg_A1B2_A1B2_A1B2_A1B2_deg4::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1 pot(mon1, mon2, mon3, mon4);
         energy = pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), xyz4.data(), grad1.data(), grad2.data(), grad3.data(),
                           grad4.data(), nm, virial);
