@@ -79,6 +79,14 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
                 and  std::regex_match(mon2, std::regex("^h2o_2c.*")) ) {
         mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
         return pot.eval(xyz1.data(), xyz2.data(), nm);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2b.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2b.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_deg5::mbnrg_A1B2Z2_A1B2Z2_deg5_v1 pot(mon1, mon2);
+        return pot.eval(xyz1.data(), xyz2.data(), nm);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2a.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2a.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_v1 pot(mon1, mon2);
+        return pot.eval(xyz1.data(), xyz2.data(), nm);
         // Ion water
 //    } else if (mon1 == "cs+" and mon2 == "h2o") {
 //        // The order is bc the poly were generated this way
@@ -259,6 +267,14 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
     } else if (      std::regex_match(mon1, std::regex("^h2o_2c.*"))
                 and  std::regex_match(mon2, std::regex("^h2o_2c.*")) ) {
         mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
+        energy =  pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2b.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2b.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_deg5::mbnrg_A1B2Z2_A1B2Z2_deg5_v1 pot(mon1, mon2);
+        energy =  pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2a.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2a.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_v1 pot(mon1, mon2);
         energy =  pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
 //    } else if (mon1 == "cs+" and mon2 == "h2o") {
 //        // The order is bc the poly were generated this way

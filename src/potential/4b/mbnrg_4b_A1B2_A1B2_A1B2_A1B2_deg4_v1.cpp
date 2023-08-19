@@ -9,10 +9,10 @@ mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1(const std::
     // =====>> BEGIN SECTION CONSTRUCTOR <<=====
     // =>> PASTE RIGHT BELOW THIS LINE <==
 
-    if (      std::regex_match(mon1, std::regex("^h2o_.*4c"))
-         and  std::regex_match(mon2, std::regex("^h2o_.*4c"))
-         and  std::regex_match(mon3, std::regex("^h2o_.*4c"))
-         and  std::regex_match(mon4, std::regex("^h2o_.*4c")) ) {
+    if (      std::regex_match(mon1, std::regex("^h2o_.*4[bc]"))
+         and  std::regex_match(mon2, std::regex("^h2o_.*4[bc]"))
+         and  std::regex_match(mon3, std::regex("^h2o_.*4[bc]"))
+         and  std::regex_match(mon4, std::regex("^h2o_.*4[bc]")) ) {
         coefficients = std::vector<double> {
              1.293592463246415e-02, // 0
             -2.527590670824149e-01, // 1
@@ -290,8 +290,24 @@ mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1(const std::
         m_d_x_intra_B_B_1 =  5.111788710064341e-03; // A^(-1))
         m_k_x_inter_B_B_0 =  6.073417761499551e-01; // A^(-1))
         m_d_x_inter_B_B_0 =  1.348545171945606e+00; // A^(-1))
+
+        if (             std::regex_match(mon1, std::regex(".*4c"))
+                    and  std::regex_match(mon2, std::regex(".*4c"))
+                    and  std::regex_match(mon3, std::regex(".*4c"))
+                    and  std::regex_match(mon4, std::regex(".*4c")) ) {
+
         m_ri =  5.500000000000000e+00; // A
         m_ro =  6.500000000000000e+00; // A
+
+        } else if (      std::regex_match(mon1, std::regex(".*4b"))
+                    and  std::regex_match(mon2, std::regex(".*4b"))
+                    and  std::regex_match(mon3, std::regex(".*4b"))
+                    and  std::regex_match(mon4, std::regex(".*4b")) ) {
+
+        m_ri =  4.500000000000000e+00; // A
+        m_ro =  5.500000000000000e+00; // A
+
+        }
 
     } // end if mon1 == "h2o" and mon2 == "h2o" and mon3 == "h2o" and mon4 == "h2o"
     // =====>> END SECTION CONSTRUCTOR <<=====

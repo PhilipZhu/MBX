@@ -90,7 +90,17 @@ double get_3b_energy(std::string mon1, std::string mon2, std::string mon3, size_
     } else if (      std::regex_match(mon1, std::regex("^h2o_2.3c.*"))
                 and  std::regex_match(mon2, std::regex("^h2o_2.3c.*"))
                 and  std::regex_match(mon3, std::regex("^h2o_2.3c.*")) ) {
-        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 pot(mon1, mon2, mon3);
+        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vc pot(mon1, mon2, mon3);
+        return pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), nm);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3b.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3b.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3b.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vb pot(mon1, mon2, mon3);
+        return pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), nm);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3a.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3a.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3a.*")) ) {
+        mbnrg_A1B2_A1B2_A1B2_deg4::mbnrg_A1B2_A1B2_A1B2_deg4_v2 pot(mon1, mon2, mon3);
         return pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), nm);
 //    } else if (mon1 == "h2o" and mon2 == "h2o" and (mon3 == "li+" or mon3 == "na+" or mon3 == "k+" or mon3 == "rb+")) {
 //        x3b_h2o_ion_v1x_deg4_filtered pot(mon3);
@@ -225,7 +235,17 @@ double get_3b_energy(std::string mon1, std::string mon2, std::string mon3, size_
     } else if (      std::regex_match(mon1, std::regex("^h2o_2.3c.*"))
                 and  std::regex_match(mon2, std::regex("^h2o_2.3c.*"))
                 and  std::regex_match(mon3, std::regex("^h2o_2.3c.*")) ) {
-        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 pot(mon1, mon2, mon3);
+        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vc pot(mon1, mon2, mon3);
+        energy =  pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), grad1.data(), grad2.data(), grad3.data(), nm, virial);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3b.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3b.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3b.*")) ) {
+        mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vb pot(mon1, mon2, mon3);
+        energy =  pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), grad1.data(), grad2.data(), grad3.data(), nm, virial);
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3a.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3a.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3a.*")) ) {
+        mbnrg_A1B2_A1B2_A1B2_deg4::mbnrg_A1B2_A1B2_A1B2_deg4_v2 pot(mon1, mon2, mon3);
         energy =  pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), grad1.data(), grad2.data(), grad3.data(), nm, virial);
 //    } else if (mon1 == "h2o" and mon2 == "h2o" and (mon3 == "li+" or mon3 == "na+" or mon3 == "k+" or mon3 == "rb+")) {
 //        x3b_h2o_ion_v1x_deg4_filtered pot(mon3);
