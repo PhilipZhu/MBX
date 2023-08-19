@@ -40,6 +40,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include <iostream>
 #include <utility>
 #include <iomanip>
+#include <regex>
 
 // 4B
 // =====>> BEGIN SECTION INCLUDE4B <<=====
