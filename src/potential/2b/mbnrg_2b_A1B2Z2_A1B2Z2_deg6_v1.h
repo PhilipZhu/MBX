@@ -39,6 +39,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include <cmath>
 #include <string>
 #include <vector>
+#include <regex>
 
 #include "tools/constants.h"
 #include "tools/variable.h"

@@ -39,6 +39,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <regex>
 
 // 3B
 #include "potential/3b/x3b-v2x.h"

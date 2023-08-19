@@ -41,6 +41,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include <iostream>
 #include <utility>
 #include <algorithm>
+#include <regex>
 
 #include "kdtree/nanoflann.hpp"
 #include "kdtree/kdtree_utils.h"
