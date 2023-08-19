@@ -17,9 +17,9 @@ iotools_src = io_tools/read_connectivity.cpp io_tools/read_nrg.cpp io_tools/writ
 bblock_src = bblock/external_call.cpp bblock/system.cpp bblock/sys_tools.cpp
 
 # Make N2O5 its ouwn minilib to allow compilation with no opt
-noinst_LTLIBRARIES = liba1b2c4.la
-liba1b2c4_la_SOURCES = potential/1b/poly_1b_A1B2C4_deg5_v1.cpp potential/1b/poly_1b_A1B2C4_deg5_v1x.cpp potential/1b/x1b_A1B2C4_deg5_v1x.cpp potential/3b/poly_3b_A1B2C4_D1E2_D1E2_deg3_grad_v1.cpp potential/3b/poly_3b_A1B2C4_D1E2_D1E2_deg3_nograd_v1.cpp 
-liba1b2c4_la_CXXFLAGS = $(EXTRA_CXXFLAGS_AM) -O0
+#noinst_LTLIBRARIES = liba1b2c4.la
+#liba1b2c4_la_SOURCES = potential/1b/poly_1b_A1B2C4_deg5_v1.cpp potential/1b/poly_1b_A1B2C4_deg5_v1x.cpp potential/1b/x1b_A1B2C4_deg5_v1x.cpp potential/3b/poly_3b_A1B2C4_D1E2_D1E2_deg3_grad_v1.cpp potential/3b/poly_3b_A1B2C4_D1E2_D1E2_deg3_nograd_v1.cpp 
+#liba1b2c4_la_CXXFLAGS = $(EXTRA_CXXFLAGS_AM) -O0
 
 # 1B poly sources
 #oneb_sources = potential/1b/energy1b.cpp potential/1b/mbnrg_1b_A1B3_deg5_v1.cpp potential/1b/mbnrg_1b_A2_deg8_v1.cpp potential/1b/poly_1b_A1B2_deg4_v1x.cpp potential/1b/poly_1b_A1B3_deg5_grad_v1.cpp potential/1b/poly_1b_A1B3_deg5_nograd_v1.cpp potential/1b/poly_1b_A1B4_deg5_exp0_v1.cpp potential/1b/poly_1b_A1B4_deg5_exp0_v1x.cpp potential/1b/poly_1b_A2_deg8_grad_v1.cpp potential/1b/poly_1b_A2_deg8_nograd_v1.cpp potential/1b/ps.cpp potential/1b/x1b_A1B2_deg4_v1x.cpp potential/1b/x1b_A1B4_deg5_exp0_v1x.cpp potential/1b/poly_1b_A1B2_deg6_grad_vmbpbe.cpp potential/1b/poly_1b_A1B2_deg6_nograd_vmbpbe.cpp  potential/1b/mbnrg_1b_A1B2_deg6_vmbpbe.cpp
@@ -55,7 +55,7 @@ lj_sources = potential/lj/lj.cpp potential/lj/ljtools.cpp
 potential_src = $(oneb_sources) $(twob_sources) $(threeb_sources) $(fourb_sources) $(elec_sources) $(disp_sources) $(buck_sources) $(ff_sources) $(lj_sources)
 
 libmbx_la_SOURCES = $(tools_src) $(iotools_src) $(bblock_src) $(potential_src)
-libmbx_la_LIBADD = liba1b2c4.la 
+#libmbx_la_LIBADD = liba1b2c4.la
 
 # Library extra flags
 libmbx_la_CPPFLAGS = $(CPPFLAGS) $(LDFLAGS) $(LIBS) $(MPIFLAGS) $(OPENMP_CXXFLAGS) $(EXTRA_CXXFLAGS_AM)
