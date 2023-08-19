@@ -79,108 +79,108 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
         mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
         return pot.eval(xyz1.data(), xyz2.data(), nm);
         // Ion water
-    } else if (mon1 == "cs+" and mon2 == "h2o") {
-        // The order is bc the poly were generated this way
-        // First water and then ion
-        h2o_ion::x2b_h2o_ion_v2x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if ((mon1 == "f-" or mon1 == "cl-" or mon1 == "br-") and mon2 == "h2o") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-        // More ion water
-    } else if (mon1 == "h2o" and mon2 == "i-") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "h2o" and (mon2 == "li+" or mon2 == "na+" or mon2 == "k+" or mon2 == "rb+")) {
-        h2o_ion::x2b_h2o_ion_v2x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "mbpbe" and mon2 == "mbpbe") {
-        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_vmbpbe pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-
-    } else if (mon1 == "ch4" && mon2 == "ch4") {
-        x2b_A1B4_A1B4_deg4_exp0::x2b_A1B4_A1B4_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2_archive" and mon2 == "co2_archive") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "nh3" and mon2 == "nh3") {
-        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "nh3pbe0d3bj" and mon2 == "nh3pbe0d3bj") {
-        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2" and mon2 == "co2") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm5100" and mon2 == "co2cm5100") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm595" and mon2 == "co2cm595") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm5875" and mon2 == "co2cm5875") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm585" and mon2 == "co2cm585") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm580" and mon2 == "co2cm580") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2cm590" and mon2 == "co2cm590") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "co2_archive" and mon2 == "h2o") {
-        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if ((mon1 == "co2" || mon1 == "co2cm5100" || mon1 == "co2cm595" || mon1 == "co2cm590" ||
-                mon1 == "co2cm5875" || mon1 == "co2cm585" || mon1 == "co2cm580") and
-               mon2 == "h2o") {
-        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, "co2");
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "ch4" and mon2 == "h2o") {
-        x2b_A1B2Z2_C1D4_deg3_exp0::x2b_A1B2Z2_C1D4_v1x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "ch4" and mon2 == "co2") {
-        mbnrg_A1B4_C1D2_deg4::mbnrg_A1B4_C1D2_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "h2" and mon2 == "h2") {
-        mbnrg_A2_A2_deg6::mbnrg_A2_A2_deg6_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "h2" and mon2 == "h2o") {
-        mbnrg_A1B2Z2_C2_deg5::mbnrg_A1B2Z2_C2_deg5_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "ar" and mon2 == "h2o") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "cs+" and mon2 == "h2") {
-        mbnrg_A1_B2_deg7::mbnrg_A1_B2_deg7_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "na+" and mon2 == "na+") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "cl-" and mon2 == "cl-") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "cl-" and mon2 == "na+") {
-        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "ar" and mon2 == "ar") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "ar" and mon2 == "cs+") {
-        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "h2o" && mon2 == "n2o5") {
-        x2b_A1B2C4_D1E2_deg3::x2b_A1B2C4_D1E2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
-    } else if (mon1 == "h2o" and mon2 == "he") {
-        x2b_A1B2Z2_C1_deg5::x2b_A1B2Z2_C1_v1x pot(mon1,mon2);
-        return pot.eval(xyz1.data(), xyz2.data(), nm);
-    } else if (mon1 == "he" and mon2 == "he") {
-        x2b_A1_A1_deg23::x2b_A1_A1_v1x pot(mon1,mon2);
-        return pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "cs+" and mon2 == "h2o") {
+//        // The order is bc the poly were generated this way
+//        // First water and then ion
+//        h2o_ion::x2b_h2o_ion_v2x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if ((mon1 == "f-" or mon1 == "cl-" or mon1 == "br-") and mon2 == "h2o") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//        // More ion water
+//    } else if (mon1 == "h2o" and mon2 == "i-") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "h2o" and (mon2 == "li+" or mon2 == "na+" or mon2 == "k+" or mon2 == "rb+")) {
+//        h2o_ion::x2b_h2o_ion_v2x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "mbpbe" and mon2 == "mbpbe") {
+//        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_vmbpbe pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//
+//    } else if (mon1 == "ch4" && mon2 == "ch4") {
+//        x2b_A1B4_A1B4_deg4_exp0::x2b_A1B4_A1B4_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2_archive" and mon2 == "co2_archive") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "nh3" and mon2 == "nh3") {
+//        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "nh3pbe0d3bj" and mon2 == "nh3pbe0d3bj") {
+//        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2" and mon2 == "co2") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm5100" and mon2 == "co2cm5100") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm595" and mon2 == "co2cm595") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm5875" and mon2 == "co2cm5875") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm585" and mon2 == "co2cm585") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm580" and mon2 == "co2cm580") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2cm590" and mon2 == "co2cm590") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "co2_archive" and mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if ((mon1 == "co2" || mon1 == "co2cm5100" || mon1 == "co2cm595" || mon1 == "co2cm590" ||
+//                mon1 == "co2cm5875" || mon1 == "co2cm585" || mon1 == "co2cm580") and
+//               mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, "co2");
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "ch4" and mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D4_deg3_exp0::x2b_A1B2Z2_C1D4_v1x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "ch4" and mon2 == "co2") {
+//        mbnrg_A1B4_C1D2_deg4::mbnrg_A1B4_C1D2_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "h2" and mon2 == "h2") {
+//        mbnrg_A2_A2_deg6::mbnrg_A2_A2_deg6_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "h2" and mon2 == "h2o") {
+//        mbnrg_A1B2Z2_C2_deg5::mbnrg_A1B2Z2_C2_deg5_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "ar" and mon2 == "h2o") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "cs+" and mon2 == "h2") {
+//        mbnrg_A1_B2_deg7::mbnrg_A1_B2_deg7_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "na+" and mon2 == "na+") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "cl-" and mon2 == "cl-") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "cl-" and mon2 == "na+") {
+//        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "ar" and mon2 == "ar") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "ar" and mon2 == "cs+") {
+//        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "h2o" && mon2 == "n2o5") {
+//        x2b_A1B2C4_D1E2_deg3::x2b_A1B2C4_D1E2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), nm);
+//    } else if (mon1 == "h2o" and mon2 == "he") {
+//        x2b_A1B2Z2_C1_deg5::x2b_A1B2Z2_C1_v1x pot(mon1,mon2);
+//        return pot.eval(xyz1.data(), xyz2.data(), nm);
+//    } else if (mon1 == "he" and mon2 == "he") {
+//        x2b_A1_A1_deg23::x2b_A1_A1_v1x pot(mon1,mon2);
+//        return pot.eval(xyz1.data(), xyz2.data(), nm);
         // =====>> BEGIN SECTION 2B_NO_GRADIENT <<=====
         // =====>> PASTE YOUR CODE BELOW <<=====
 
@@ -258,107 +258,107 @@ double get_2b_energy(std::string mon1, std::string mon2, size_t nm, std::vector<
     } else if (mon1 == "h2o_2c3c4c" and mon2 == "h2o_2c3c4c") {
         mbnrg_A1B2Z2_A1B2Z2_deg6::mbnrg_A1B2Z2_A1B2Z2_deg6_v1 pot(mon1, mon2);
         energy =  pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "cs+" and mon2 == "h2o") {
-        // The order is bc the poly were generated this way
-        // First water and then ion
-        h2o_ion::x2b_h2o_ion_v2x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if ((mon1 == "f-" or mon1 == "cl-" or mon1 == "br-") and mon2 == "h2o") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "h2o" and mon2 == "i-") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "h2o" and (mon2 == "li+" or mon2 == "na+" or mon2 == "k+" or mon2 == "rb+")) {
-        h2o_ion::x2b_h2o_ion_v2x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-
-    } else if (mon1 == "ch4" && mon2 == "ch4") {
-        x2b_A1B4_A1B4_deg4_exp0::x2b_A1B4_A1B4_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2_archive" and mon2 == "co2_archive") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "nh3" and mon2 == "nh3") {
-        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "nh3pbe0d3bj" and mon2 == "nh3pbe0d3bj") {
-        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2" and mon2 == "co2") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm5100" and mon2 == "co2cm5100") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm595" and mon2 == "co2cm595") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm590" and mon2 == "co2cm590") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm5875" and mon2 == "co2cm5875") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm585" and mon2 == "co2cm585") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2cm580" and mon2 == "co2cm580") {
-        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "co2_archive" and mon2 == "h2o") {
-        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if ((mon1 == "co2" || mon1 == "co2cm5100" || mon1 == "co2cm595" || mon1 == "co2cm590" ||
-                mon1 == "co2cm5875" || mon1 == "co2cm585" || mon1 == "co2cm580") and
-               mon2 == "h2o") {
-        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, "co2");
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "ch4" and mon2 == "h2o") {
-        x2b_A1B2Z2_C1D4_deg3_exp0::x2b_A1B2Z2_C1D4_v1x pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "ch4" and mon2 == "co2") {
-        mbnrg_A1B4_C1D2_deg4::mbnrg_A1B4_C1D2_deg4_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "h2" and mon2 == "h2") {
-        mbnrg_A2_A2_deg6::mbnrg_A2_A2_deg6_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "h2" and mon2 == "h2o") {
-        mbnrg_A1B2Z2_C2_deg5::mbnrg_A1B2Z2_C2_deg5_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "ar" and mon2 == "h2o") {
-        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "ar" and mon2 == "ar") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "cs+" and mon2 == "h2") {
-        mbnrg_A1_B2_deg7::mbnrg_A1_B2_deg7_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "na+" and mon2 == "na+") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "cl-" and mon2 == "cl-") {
-        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "cl-" and mon2 == "na+") {
-        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "ar" and mon2 == "cs+") {
-        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "h2o" && mon2 == "n2o5") {
-        x2b_A1B2C4_D1E2_deg3::x2b_A1B2C4_D1E2_v1x pot(mon1, mon2);
-        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
-    } else if (mon1 == "mbpbe" and mon2 == "mbpbe") {
-        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_vmbpbe pot(mon1, mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "h2o" and mon2 == "he") {
-        x2b_A1B2Z2_C1_deg5::x2b_A1B2Z2_C1_v1x pot(mon1,mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
-    } else if (mon1 == "he" and mon2 == "he") {
-        x2b_A1_A1_deg23::x2b_A1_A1_v1x pot(mon1,mon2);
-        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "cs+" and mon2 == "h2o") {
+//        // The order is bc the poly were generated this way
+//        // First water and then ion
+//        h2o_ion::x2b_h2o_ion_v2x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if ((mon1 == "f-" or mon1 == "cl-" or mon1 == "br-") and mon2 == "h2o") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "h2o" and mon2 == "i-") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "h2o" and (mon2 == "li+" or mon2 == "na+" or mon2 == "k+" or mon2 == "rb+")) {
+//        h2o_ion::x2b_h2o_ion_v2x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//
+//    } else if (mon1 == "ch4" && mon2 == "ch4") {
+//        x2b_A1B4_A1B4_deg4_exp0::x2b_A1B4_A1B4_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2_archive" and mon2 == "co2_archive") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "nh3" and mon2 == "nh3") {
+//        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "nh3pbe0d3bj" and mon2 == "nh3pbe0d3bj") {
+//        mbnrg_A1B3_A1B3_deg4::mbnrg_A1B3_A1B3_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2" and mon2 == "co2") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm5100" and mon2 == "co2cm5100") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm595" and mon2 == "co2cm595") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm590" and mon2 == "co2cm590") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm5875" and mon2 == "co2cm5875") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm585" and mon2 == "co2cm585") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2cm580" and mon2 == "co2cm580") {
+//        x2b_A1B2_A1B2_deg5::x2b_A1B2_A1B2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "co2_archive" and mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if ((mon1 == "co2" || mon1 == "co2cm5100" || mon1 == "co2cm595" || mon1 == "co2cm590" ||
+//                mon1 == "co2cm5875" || mon1 == "co2cm585" || mon1 == "co2cm580") and
+//               mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D2_deg4::x2b_A1B2Z2_C1D2_v1x pot(mon2, "co2");
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "ch4" and mon2 == "h2o") {
+//        x2b_A1B2Z2_C1D4_deg3_exp0::x2b_A1B2Z2_C1D4_v1x pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "ch4" and mon2 == "co2") {
+//        mbnrg_A1B4_C1D2_deg4::mbnrg_A1B4_C1D2_deg4_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "h2" and mon2 == "h2") {
+//        mbnrg_A2_A2_deg6::mbnrg_A2_A2_deg6_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "h2" and mon2 == "h2o") {
+//        mbnrg_A1B2Z2_C2_deg5::mbnrg_A1B2Z2_C2_deg5_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "ar" and mon2 == "h2o") {
+//        mbnrg_A1_B1C2X2_deg5::mbnrg_A1_B1C2X2_deg5_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "ar" and mon2 == "ar") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "cs+" and mon2 == "h2") {
+//        mbnrg_A1_B2_deg7::mbnrg_A1_B2_deg7_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "na+" and mon2 == "na+") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "cl-" and mon2 == "cl-") {
+//        mbnrg_A1_A1_deg9::mbnrg_A1_A1_deg9_v1 pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "cl-" and mon2 == "na+") {
+//        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "ar" and mon2 == "cs+") {
+//        mbnrg_A1_B1_deg9::mbnrg_A1_B1_deg9_v1 pot(mon2, mon1);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "h2o" && mon2 == "n2o5") {
+//        x2b_A1B2C4_D1E2_deg3::x2b_A1B2C4_D1E2_v1x pot(mon1, mon2);
+//        energy = pot.eval(xyz2.data(), xyz1.data(), grad2.data(), grad1.data(), nm, virial);
+//    } else if (mon1 == "mbpbe" and mon2 == "mbpbe") {
+//        mbnrg_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_deg4_vmbpbe pot(mon1, mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "h2o" and mon2 == "he") {
+//        x2b_A1B2Z2_C1_deg5::x2b_A1B2Z2_C1_v1x pot(mon1,mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
+//    } else if (mon1 == "he" and mon2 == "he") {
+//        x2b_A1_A1_deg23::x2b_A1_A1_v1x pot(mon1,mon2);
+//        energy = pot.eval(xyz1.data(), xyz2.data(), grad1.data(), grad2.data(), nm, virial);
         // =====>> BEGIN SECTION 2B_GRADIENT <<=====
         // ====>> PASTE YOUR CODE BELOW <<====
 
