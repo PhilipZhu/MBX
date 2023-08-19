@@ -9,10 +9,10 @@ mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1(const std::
     // =====>> BEGIN SECTION CONSTRUCTOR <<=====
     // =>> PASTE RIGHT BELOW THIS LINE <==
 
-    if (      std::regex_match(mon1, std::regex("h2o_2[abc]3[abc]4c"))
-         and  std::regex_match(mon2, std::regex("h2o_2[abc]3[abc]4c"))
-         and  std::regex_match(mon3, std::regex("h2o_2[abc]3[abc]4c"))
-         and  std::regex_match(mon4, std::regex("h2o_2[abc]3[abc]4c")) ) {
+    if (      std::regex_match(mon1, std::regex("^h2o_.*4c"))
+         and  std::regex_match(mon2, std::regex("^h2o_.*4c"))
+         and  std::regex_match(mon3, std::regex("^h2o_.*4c"))
+         and  std::regex_match(mon4, std::regex("^h2o_.*4c")) ) {
         coefficients = std::vector<double> {
              1.293592463246415e-02, // 0
             -2.527590670824149e-01, // 1

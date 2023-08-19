@@ -87,9 +87,9 @@ double get_3b_energy(std::string mon1, std::string mon2, std::string mon3, size_
     if (mon1 == "h2o" and mon2 == "h2o" and mon3 == "h2o") {
         x2o::x3b_v2x pot;
         energy = pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), nm);
-    } else if (      std::regex_match(mon1, std::regex("h2o_2[abc]3c(4[abc])?"))
-                and  std::regex_match(mon2, std::regex("h2o_2[abc]3c(4[abc])?"))
-                and  std::regex_match(mon3, std::regex("h2o_2[abc]3c(4[abc])?")) ) {
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3c.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3c.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3c.*")) ) {
         mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 pot(mon1, mon2, mon3);
         return pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), nm);
 //    } else if (mon1 == "h2o" and mon2 == "h2o" and (mon3 == "li+" or mon3 == "na+" or mon3 == "k+" or mon3 == "rb+")) {
@@ -222,9 +222,9 @@ double get_3b_energy(std::string mon1, std::string mon2, std::string mon3, size_
     if (mon1 == "h2o" and mon2 == "h2o" and mon3 == "h2o") {
         x2o::x3b_v2x pot;
         energy = pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), grad1.data(), grad2.data(), grad3.data(), nm, virial);
-    } else if (      std::regex_match(mon1, std::regex("h2o_2[abc]3c(4[abc])?"))
-                and  std::regex_match(mon2, std::regex("h2o_2[abc]3c(4[abc])?"))
-                and  std::regex_match(mon3, std::regex("h2o_2[abc]3c(4[abc])?")) ) {
+    } else if (      std::regex_match(mon1, std::regex("^h2o_2.3c.*"))
+                and  std::regex_match(mon2, std::regex("^h2o_2.3c.*"))
+                and  std::regex_match(mon3, std::regex("^h2o_2.3c.*")) ) {
         mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 pot(mon1, mon2, mon3);
         energy =  pot.eval(xyz1.data(), xyz2.data(), xyz3.data(), grad1.data(), grad2.data(), grad3.data(), nm, virial);
 //    } else if (mon1 == "h2o" and mon2 == "h2o" and (mon3 == "li+" or mon3 == "na+" or mon3 == "k+" or mon3 == "rb+")) {

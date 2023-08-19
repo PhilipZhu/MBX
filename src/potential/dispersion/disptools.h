@@ -41,6 +41,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include <cstddef>
 #include <iostream>
 #include <iomanip>
+#include <regex>
 
 #include "tools/math_tools.h"
 #include "json/json.h"
