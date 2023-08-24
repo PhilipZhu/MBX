@@ -10,7 +10,8 @@ mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vb::mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_vb(const std
     // =>> PASTE RIGHT BELOW THIS LINE <==
 
 
-    if ( std::regex_match(mon1, std::regex("^h2o_2.3b.*"))
+    //if ( std::regex_match(mon1, std::regex("^h2o_2.3b.*"))
+    if ( mon1.size() >= 8 && mon1.compare(0, 5, "h2o_2") == 0 && mon1.compare(6, 2, "3b") == 0
          and  mon1 == mon2
          and  mon1 == mon3 ) {
         coefficients = std::vector<double> {
