@@ -6,6 +6,7 @@
 This branch is a modified MBX based off MBX v1.0. This branch implements all h2o models introduced in:
 - MB-pol(2023) 
   * [J. Chem. Theory Comput. 19, 3551 (2023)](https://doi.org/10.1021/acs.jctc.3c00326)
+
 To use h2o models introduced in MB-pol(2023), set the monomer name to "h2o\_2x3y4z", where x, y, z each is replaced by one of the three characters "a", "b", or "c". Please refer to the paper for more details on what "a", "b", and "c" correspond to.
 In addition, unless z="a", you also need to set "fourbody\_cutoff=6.5" in the MBX input json file. If z="a", "fourbody\_cutoff" does not affect the model, but should be set to 0 for better performance.
 - MB-pol
@@ -14,6 +15,7 @@ In addition, unless z="a", you also need to set "fourbody\_cutoff=6.5" in the MB
   * [J. Chem. Theory Comput. 10, 2906 (2014)](https://doi.org/10.1021/ct5004115)
   * [J. Chem. Phys. 145, 194504 (2016)](https://doi.org/10.1063/1.4967719)
   * [Acc. Chem. Res. 49, 1844 (2016)](https://doi.org/10.1021/acs.accounts.6b00285)
+
 To use MB-pol, set the monomer name to "h2o". "fourbody\_cutoff" does not affect the model, but should be set to 0 for better performance.
 All other models are removed for this branch. Below is the original README for MBX v1.0.
 
