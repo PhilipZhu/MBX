@@ -617,14 +617,14 @@ void AddClusters(size_t n_max, double cutoff, std::vector<size_t> idxs, size_t n
                         size_t id_l = ret_matches[l].first % nmon2;
 
                         //  Use this condition for cutoff-by-largest-distance scheme
-                        //  if (tag_index[i] < tag_index[id_j] && tag_index[i] < tag_index[id_k] && tag_index[i] <
-                        //  tag_index[id_l] && d2jk < cutoff * cutoff && d2jl < cutoff * cutoff && d2kl < cutoff *
-                        //  cutoff) {
+                        if (tag_index[i] < tag_index[id_j] && tag_index[i] < tag_index[id_k] && tag_index[i] <
+                        tag_index[id_l] && d2jk < cutoff * cutoff && d2jl < cutoff * cutoff && d2kl < cutoff *
+                        cutoff) {
 
                         //  Use this condition for center-3-neighbor scheme
-                        if (!((tag_index[i] >= tag_index[id_j] && d2jk < cutoff * cutoff && d2jl < cutoff * cutoff) ||
-                              (tag_index[i] >= tag_index[id_k] && d2jk < cutoff * cutoff && d2kl < cutoff * cutoff) ||
-                              (tag_index[i] >= tag_index[id_l] && d2kl < cutoff * cutoff && d2jl < cutoff * cutoff))) {
+                        //  if (!((tag_index[i] >= tag_index[id_j] && d2jk < cutoff * cutoff && d2jl < cutoff * cutoff) ||
+                        //        (tag_index[i] >= tag_index[id_k] && d2jk < cutoff * cutoff && d2kl < cutoff * cutoff) ||
+                        //        (tag_index[i] >= tag_index[id_l] && d2kl < cutoff * cutoff && d2jl < cutoff * cutoff))) {
                             // add tetramers here
                             nmers.push_back(mon_index[i]);
                             nmers.push_back(mon_index[id_j]);
