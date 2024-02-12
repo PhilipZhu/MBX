@@ -2436,7 +2436,7 @@ int FixMBX::get_num_atoms_per_monomer(char *name, bool &inc_e) {
     int na;
     inc_e = false;
 
-    if (strcmp("h2o", name) == 0 || strcmp("h2o_2c3c4c", name) == 0 )
+    if (strcmp("h2o", name) == 0 || (strlen(name) > 4 && strncmp(name, "h2o_", 4) == 0) )
         na = 3;
     else if (strcmp("li+", name) == 0)
         na = 1;
@@ -2514,7 +2514,7 @@ int FixMBX::get_include_monomer(char *name, int anchor, bool &inc, bool &inc_e) 
 ------------------------------------------------------------------------- */
 
 void FixMBX::add_monomer_atom_types(char *name, std::vector<std::string> &n) {
-    if (strcmp("h2o", name) == 0 || strcmp("h2o_2c3c4c", name) == 0) {
+    if (strcmp("h2o", name) == 0 || (strlen(name) > 4 && strncmp(name, "h2o_", 4) == 0) ) {
         n.push_back("O");
         n.push_back("H");
         n.push_back("H");
