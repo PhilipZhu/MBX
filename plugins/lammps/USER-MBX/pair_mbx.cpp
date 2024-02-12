@@ -901,7 +901,7 @@ int PairMBX::get_num_atoms_per_monomer(char *name, bool &inc_e) {
     int na;
     inc_e = false;
 
-    if (strcmp("h2o", name) == 0 || strcmp("h2o_2c3c4c", name) == 0)
+    if (strcmp("h2o", name) == 0 || (strlen(name) > 4 && strncmp(name, "h2o_", 4) == 0) )
         na = 3;
     else if (strcmp("li+", name) == 0)
         na = 1;
@@ -951,7 +951,7 @@ int PairMBX::get_include_monomer(char *name, int anchor, bool &inc_m, bool &inc_
     inc_m = true;
     inc_e = false;
 
-    if (strcmp("h2o", name) == 0 || strcmp("h2o_2c3c4c", name) == 0) {
+    if (strcmp("h2o", name) == 0 || (strlen(name) > 4 && strncmp(name, "h2o_", 4) == 0) ) {
         na = 3;
         const int ii1 = atom->map(anchor + 1);
         const int ii2 = atom->map(anchor + 2);
