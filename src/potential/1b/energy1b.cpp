@@ -139,7 +139,7 @@ double get_1b_energy(std::string mon1, size_t nm, std::vector<double> xyz1, std:
 
     std::vector<double> energies;
     // Look for the proper call to energy depending on the monomer id
-    if (mon1 == "h2o" || mon1 == "h2o_2c3c4c") {
+    if (mon1 == "h2o" || std::regex_match(mon1, std::regex("^h2o_.*"))) {
         energies = ps::pot_nasa(xyz1.data(), grad1.data(), nm, virial);
 
         // =====>> BEGIN SECTION 1B_GRADIENT <<=====
