@@ -2,8 +2,8 @@
 [![codecov](https://codecov.io/gh/paesanilab/MBX-dev/branch/master/graph/badge.svg?token=4OE0CPMHGR)](https://codecov.io/gh/paesanilab/MBX-dev)
 [![Homepage](https://img.shields.io/badge/google%20groups-mbx--users-green)](https://groups.google.com/g/mbx-users)
 
-# MB-pol(2023) / MBX v1.1
-This branch is a modified MBX based off MBX v1.0. This branch implements all h2o models introduced in:
+# MB-pol(2023) / MBX v1.1.3
+This branch is a modified MBX based off MBX v1.1.3. This branch implements all h2o models introduced in:
 - MB-pol(2023) 
   * [J. Chem. Theory Comput. 19, 3551 (2023)](https://doi.org/10.1021/acs.jctc.3c00326)
 
@@ -17,9 +17,9 @@ To use h2o models introduced in MB-pol(2023), set the monomer name to "h2o\_2x3y
 
 To use MB-pol, set the monomer name to "h2o". "fourbody\_cutoff" does not affect the model, but should be set to 0 for better performance.
 
-All other models are removed for this branch. Below is the original README for MBX v1.1.
+All other models are removed for this branch. Below is the original README for MBX v1.1.3.
 
-# MBX v1.1
+# MBX v1.1.3
 MBX is a C++ software that can either be used as a standalone software for calculating energies and forces of MB-nrg potential energy functions (PEFs) for the molecular systems of interest or interfaced with external molecular dynamics and Monte Carlo engines to perform classical and quantum simulations of the molecular system of interest across different thermodynamic states and phases, in both periodic and non-periodic conditions, using the corresponding MB-nrg PEFs.
 The current version of MBX provides interfaces to LAMMPS (https://www.lammps.org) and i-PI (http://ipi-code.org) which allow for performing classical and path-integral molecular dynamics simulations using MB-nrg PEFs. 
 For details on the MB-pol and MB-nrg PEFs, please visit: https://paesanigroup.ucsd.edu/software/mbx.html.
