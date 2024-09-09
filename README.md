@@ -3,7 +3,7 @@
 [![Homepage](https://img.shields.io/badge/google%20groups-mbx--users-green)](https://groups.google.com/g/mbx-users)
 
 # MB-pol(2023) / MBX v1.1.3
-This branch is a modified MBX based off MBX v1.0. This branch implements all h2o models introduced in:
+This branch is a modified MBX based off MBX v1.1.3. This branch implements all h2o models introduced in:
 - MB-pol(2023) 
   * [J. Chem. Theory Comput. 19, 3551 (2023)](https://doi.org/10.1021/acs.jctc.3c00326)
 
