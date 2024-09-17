@@ -19,7 +19,7 @@ To use MB-pol, set the monomer name to "h2o". "fourbody\_cutoff" does not affect
 
 All other models are removed for this branch. Below is the original README for MBX v1.1.3.
 
-# MBX v1.1.3
+# MBX v1.2.0
 MBX: A many-body energy and force calculator for data-driven many-body simulations.
 [J. Chem. Phys. 159, 054802 (2023)](https://doi.org/10.1063/5.0156036)
 
