@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/paesanilab/MBX-dev/branch/master/graph/badge.svg?token=4OE0CPMHGR)](https://codecov.io/gh/paesanilab/MBX-dev)
 [![Homepage](https://img.shields.io/badge/google%20groups-mbx--users-green)](https://groups.google.com/g/mbx-users)
 
-# MB-pol(2023) / MBX v1.1.3
+# MB-pol(PIFS) / MBX v1.1.3
 This branch is a modified MBX based off MBX v1.1.3. This branch implements all h2o models introduced in:
 - MB-pol(PIFS) / 2-body PIFS + 3-body PIFS
   * [ChemRxiv](https://doi.org/10.26434/chemrxiv-2025-76p6j)
