@@ -33,8 +33,8 @@ MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, OR THAT THE USE OF THE
 SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 ******************************************************************************/
 
-#ifndef MBNRG_3B_A1B2Z2_A1B2Z2_A1B2Z2_DEG4_V2_H
-#define MBNRG_3B_A1B2Z2_A1B2Z2_A1B2Z2_DEG4_V2_H
+#ifndef MBNRG_3B_A1B2_A1B2_A1B2_DEG4_V2_H
+#define MBNRG_3B_A1B2_A1B2_A1B2_DEG4_V2_H
 
 #include <cmath>
 #include <string>
@@ -43,26 +43,26 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 #include "tools/constants.h"
 #include "tools/variable.h"
 #include "tools/water_monomer_lp.h"
-#include "poly_3b_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2.h" 
+#include "poly_3b_A1B2_A1B2_A1B2_deg4_v2.h" 
 
 
 /**
- * @file mbnrg_3b_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2.h
- * @brief Contains the structure of the polynomial holder for symmetry A1B2Z2_A1B2Z2_A1B2Z2
+ * @file mbnrg_3b_A1B2_A1B2_A1B2_deg4_v2.h
+ * @brief Contains the structure of the polynomial holder for symmetry A1B2_A1B2_A1B2
  */
 
 /**
- * @namespace mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4
- * @brief Encloses the structure of the polynomial holder for symmetry A1B2Z2_A1B2Z2_A1B2Z2
+ * @namespace mbnrg_A1B2_A1B2_A1B2_deg4
+ * @brief Encloses the structure of the polynomial holder for symmetry A1B2_A1B2_A1B2
  */
 
-namespace mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4 {
+namespace mbnrg_A1B2_A1B2_A1B2_deg4 {
 
 //----------------------------------------------------------------------------//
 
-struct mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 {
+struct mbnrg_A1B2_A1B2_A1B2_deg4_v2 {
     // Creates an empty class
-    mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2() {};
+    mbnrg_A1B2_A1B2_A1B2_deg4_v2() {};
 
     /**
      * @brief Creates a class and initializes the parameters corresponding to mon
@@ -71,13 +71,13 @@ struct mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 {
      * @param[in] mon2 Monomer id of the first monomer of interest
 
      */
-    mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2(const std::string mon1, const std::string mon2, const std::string mon3);
+    mbnrg_A1B2_A1B2_A1B2_deg4_v2(const std::string mon1, const std::string mon2, const std::string mon3);
 
     // Destroys the class
-    ~mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2() {};
+    ~mbnrg_A1B2_A1B2_A1B2_deg4_v2() {};
     
     // Polynomial for this symmetry
-    typedef poly_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2 polynomial;
+    typedef poly_A1B2_A1B2_A1B2_deg4_v2 polynomial;
 
     /**
      * @brief Computes the one body energy for the monomers
@@ -113,18 +113,10 @@ urns a vector with them.
   private:
     // Non-linear constants
     double m_k_x_inter_A_A_0;
-    double m_d_x_inter_A_A_0;
     double m_k_x_intra_A_B_1;
-    double m_d_x_intra_A_B_1;
     double m_k_x_inter_A_B_0;
-    double m_d_x_inter_A_B_0;
-    double m_k_x_inter_A_Z_0;
     double m_k_x_intra_B_B_1;
-    double m_d_x_intra_B_B_1;
     double m_k_x_inter_B_B_0;
-    double m_d_x_inter_B_B_0;
-    double m_k_x_inter_B_Z_0;
-    double m_k_x_inter_Z_Z_0;
 
     // Inner cutoff
     double m_ri = 0.0;
@@ -141,7 +133,7 @@ urns a vector with them.
 
 //----------------------------------------------------------------------------//
 
-} // namespace mbnrg_A1B2Z2_A1B2Z2_A1B2Z2_deg4
+} // namespace mbnrg_A1B2_A1B2_A1B2_deg4
 
 ////////////////////////////////////////////////////////////////////////////////
 

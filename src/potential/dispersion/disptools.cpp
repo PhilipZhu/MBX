@@ -508,7 +508,7 @@ bool GetC6(std::string mon_id1, std::string mon_id2, size_t index1, size_t index
     std::vector<size_t> types1, types2;
 
     // Monomers here have to be in alphabetical order: mon1 < mon2 ALWAYS
-    if ((mon_id1 == "h2o" && mon_id2 == "h2o") || (mon_id1 == "h2o_2c3c4c" && mon_id2 == "h2o_2c3c4c")) {
+    if (mon_id1 == "h2o" && mon_id2 == "h2o") {
         // Define the type of atom in each mon
         types1.push_back(0);
         types1.push_back(1);
@@ -531,6 +531,30 @@ bool GetC6(std::string mon_id1, std::string mon_id2, size_t index1, size_t index
         d6.push_back(9.775202425217957e+00);  // A^(-1)
         d6.push_back(9.775202425217957e+00);  // A^(-1)
         d6.push_back(9.406475169954112e+00);  // A^(-1)
+
+    } else if (mon_id1 == "h2o_pifs" && mon_id2 == "h2o_pifs") {
+        // Define the type of atom in each mon
+        types1.push_back(0);
+        types1.push_back(1);
+        types1.push_back(1);
+
+        types2.push_back(0);
+        types2.push_back(1);
+        types2.push_back(1);
+
+        // Set the number of different types
+        nt2 = 2;
+
+        // Fill in (in order) the C6 and d6 coefficients
+        C6.push_back(2.373212214147944e+02);  // kcal/mol * A^(-6) O -- O
+        C6.push_back(8.349556669872743e+01);  // kcal/mol * A^(-6) O -- H
+        C6.push_back(8.349556669872743e+01);  // kcal/mol * A^(-6) H -- O
+        C6.push_back(2.009358600184719e+01);  // kcal/mol * A^(-6) H -- H
+
+        d6.push_back(3.65);  // A^(-1)
+        d6.push_back(4.45);  // A^(-1)
+        d6.push_back(4.45);  // A^(-1)
+        d6.push_back(5.70);  // A^(-1)
 
     } else if (mon_id1 == "f-" and mon_id2 == "h2o") {
         // Define the type of atom in each mon

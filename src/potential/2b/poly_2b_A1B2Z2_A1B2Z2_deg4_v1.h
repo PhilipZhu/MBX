@@ -35,89 +35,90 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 
 
 
-#ifndef POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG6_H
-#define POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG6_H
+#ifndef POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG4_H
+#define POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG4_H
+#include <cmath>
 
 /**
- * @file poly_2b_A1B2Z2_A1B2Z2_deg6_v1.h
+ * @file poly_2b_A1B2Z2_A1B2Z2_deg4_v1.h
  * @brief Contains the structure of the polynomial for symmetry A1B2Z2_A1B2Z2
  */
 
 /**
- * @namespace mbnrg_A1B2Z2_A1B2Z2_deg6
+ * @namespace mbnrg_A1B2Z2_A1B2Z2_deg4
  * @brief Encloses the structure of the polynomial for symmetry A1B2Z2_A1B2Z2
  */
 
-namespace mbnrg_A1B2Z2_A1B2Z2_deg6 {
+namespace mbnrg_A1B2Z2_A1B2Z2_deg4 {
 
-struct poly_A1B2Z2_A1B2Z2_deg6_v1 {
+struct poly_A1B2Z2_A1B2Z2_deg4_v1 {
     // Degree of the polynomial
-    static const unsigned degree = 6;
+    static const unsigned degree = 4;
 
     // Number of variables
-    static const unsigned n_vars = 31;
+    static const unsigned n_vars = 40;
 
     // Number of terms
-    static const unsigned size = 3828;
+    static const unsigned size = 3792;
 
     /**
-     * @brief Evaluates the polynomial of degree 6 for A1B2Z2_A1B2Z2 symmetry.
+     * @brief Evaluates the polynomial of degree 4 for A1B2Z2_A1B2Z2 symmetry.
      *
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2Z2_A1B2Z2 symmetry.
      * @param[in] x Double array of length 31 with the variable values
-     * @param[in] a Double array of 3828 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 3789 elements with the linear parameters of the polynomial
      * @return Value of the polynomial
      */
-    double eval(const double x[31],
-              const double a[3828]);
+    double eval(const double x[40],
+              const double a[3792]);
 
     /**
-     * @brief Evaluates the polynomial of degree 6 for A1B2Z2_A1B2Z2 symmetry.
+     * @brief Evaluates the polynomial of degree 4 for A1B2Z2_A1B2Z2 symmetry.
      *
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2Z2_A1B2Z2 symmetry.
      * It uses the direct, non optimized polynomial
      * @param[in] x Double array of length 31 with the variable values
-     * @param[in] a Double array of 3828 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 3789 elements with the linear parameters of the polynomial
      * @return Value of the polynomial
      */
-    double eval_direct(const double x[31],
-                     const double a[3828]);
+    double eval_direct(const double x[40],
+                     const double a[3792]);
 
     /**
-     * @brief Evaluates the polynomial of degree 6 for A1B2Z2_A1B2Z2 symmetry.
+     * @brief Evaluates the polynomial of degree 4 for A1B2Z2_A1B2Z2 symmetry.
      *
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2Z2_A1B2Z2 symmetry.
      * @param[in] x Double array of length 31 with the variable values
-     * @param[in] a Double array of 3828 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 3789 elements with the linear parameters of the polynomial
      * @param[out] g Double array of length 31 that will store the gradients dP/dxi
      * @return Value of the polynomial
      */
-    double eval(const double x[31],
-              const double a[3828],
-                    double g[31]);
+    double eval(const double x[40],
+              const double a[3792],
+                    double g[40]);
     
     /**
-     * @brief Evaluates the polynomial of degree 6 for A1B2Z2_A1B2Z2 symmetry.
+     * @brief Evaluates the polynomial of degree 4 for A1B2Z2_A1B2Z2 symmetry.
      *
      * Given the linear parameters and the value of the polynomial variables, 
      * evaluates the polynomial for the A1B2Z2_A1B2Z2 symmetry.
      * It uses the direct, non optimized polynomial
      * @param[in] x Double array of length 31 with the variable values
-     * @param[in] a Double array of 3828 elements with the linear parameters of the polynomial
+     * @param[in] a Double array of 3789 elements with the linear parameters of the polynomial
      * @param[out] g Double array of length 31 that will store the gradients dP/dxi
      * @return Value of the polynomial
      */
-    double eval_direct(const double x[31],
-                     const double a[3828],
-                           double g[31]);
+    double eval_direct(const double x[40],
+                     const double a[3792],
+                           double g[40]);
 };
 
-} // namespace mbnrg_A1B2Z2_A1B2Z2_deg6
+} // namespace mbnrg_A1B2Z2_A1B2Z2_deg4
 
-#endif // POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG6_H
+#endif // POLY_2B_MBNRG_A1B2Z2_A1B2Z2_DEG4_H
 
 
 
@@ -159,13 +160,6 @@ struct poly_A1B2Z2_A1B2Z2_deg6_v1 {
 //  add_variable['Z', '2', 'a', 'Z', '4', 'b', 'x-inter-Z+Z-0']
 //  
 //  add_filter['sum-degree', 'x-inter-*+*-*', '0']
-//  
-//  add_filter['sum-degree', '*', '1', 'and', 'sum-degree', 'x-intra-*+*-*', '1+']
-//  add_filter['sum-degree', '*', '2', 'and', 'sum-degree', 'x-intra-*+*-*', '2']
-//  add_filter['sum-degree', '*', '3', 'and', 'sum-degree', 'x-intra-*+*-*', '3']
-//  add_filter['sum-degree', '*', '4', 'and', 'sum-degree', 'x-intra-*+*-*', '1-/3+']
-//  add_filter['sum-degree', '*', '5', 'and', 'sum-degree', 'x-intra-*+*-*', '1-/3+']
-//  add_filter['sum-degree', '*', '5', 'and', 'not', 'ind-degree', 'x-inter-*+*-*', '2+']
-//  add_filter['sum-degree', '*', '6', 'and', 'sum-degree', 'x-intra-*+*-*', '2-/4+']
-//  add_filter['sum-degree', '*', '6', 'and', 'not', 'ind-degree', 'x-inter-*+*-*', '2+']
-//  add_filter['sum-degree', '*', '6', 'and', 'not', 'ind-degree', 'x-intra-*+*-*', '2+']
+//  add_filter['num-fragments', 'x-inter-*+*-*', '1-']
+//  add_filter['num-permutations', '40+']
+//  add_filter['poorly-behaved-by-fragment']

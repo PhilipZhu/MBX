@@ -9,7 +9,7 @@ mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1(const std::
     // =====>> BEGIN SECTION CONSTRUCTOR <<=====
     // =>> PASTE RIGHT BELOW THIS LINE <==
 
-    if (mon1 == "h2o_2c3c4c" and mon2 == "h2o_2c3c4c" and mon3 == "h2o_2c3c4c" and mon4 == "h2o_2c3c4c") {
+    if (mon1 == "h2o_pifs" and mon2 == "h2o_pifs" and mon3 == "h2o_pifs" and mon4 == "h2o_pifs") {
         coefficients = std::vector<double> {
              1.293592463246415e-02, // 0
             -2.527590670824149e-01, // 1
@@ -287,8 +287,8 @@ mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1::mbnrg_A1B2_A1B2_A1B2_A1B2_deg4_v1(const std::
         m_d_x_intra_B_B_1 =  5.111788710064341e-03; // A^(-1))
         m_k_x_inter_B_B_0 =  6.073417761499551e-01; // A^(-1))
         m_d_x_inter_B_B_0 =  1.348545171945606e+00; // A^(-1))
-        m_ri =  5.500000000000000e+00; // A
-        m_ro =  6.500000000000000e+00; // A
+        m_ri =  4.500000000000000e+00; // A
+        m_ro =  5.500000000000000e+00; // A
 
     } // end if mon1 == "h2o" and mon2 == "h2o" and mon3 == "h2o" and mon4 == "h2o"
     // =====>> END SECTION CONSTRUCTOR <<=====

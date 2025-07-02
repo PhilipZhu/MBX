@@ -43,7 +43,7 @@ SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.
 // 3B
 #include "potential/3b/x3b-v2x.h"
 //#include "potential/3b/poly-3b-v2x.h"
-#include "potential/3b/mbnrg_3b_A1B2Z2_A1B2Z2_A1B2Z2_deg4_v2.h"
+#include "potential/3b/mbnrg_3b_A1B2_A1B2_A1B2_deg4_v2.h"
 //#include "potential/3b/x3b-h2o-ion-v1x-deg4-filtered.h"
 // =====>> BEGIN SECTION INCLUDE3B <<=====
 // ===>> PASTE YOUR CODE BELOW <<===
